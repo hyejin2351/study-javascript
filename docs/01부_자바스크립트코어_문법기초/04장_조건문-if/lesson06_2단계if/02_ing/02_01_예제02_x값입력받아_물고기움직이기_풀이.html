@@ -58,6 +58,15 @@
             $("#btn_start").click(function() {
                 // 여기에 소스를 입력해주세요.
 
+                var value = window.prompt("x좌표 값을 입력해주세요.")
+                value = parseInt(value);
+
+                if( value>=0 && value<=430 ){
+                    $fish.css("left",value)
+                }
+                else{
+                    alert("유효한 좌표 값이 입력되지 않았습니다.")
+                }
             });
         })
 
