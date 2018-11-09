@@ -20,11 +20,15 @@
     <script src="../../libs/jquery-1.11.0.min.js"></script>
     <script>
         /*
-         예제 05: 확인 버튼(#btnCheck)을 클릭하면 패널(#panel)의 외각선(border)을
-         “4px solid #f00”으로 변경해주세요.
+         예제 05: 확인 버튼(#btnCheck)을 클릭하면 패널(#panel)의 글자 크기와 색을 각각 16px과 #f00으로 변경해주세요.
          */
         $(document).ready(function(){
-
+            $("#btnCheck").on("click",function(){
+                $("#panel").css({
+                    "font-size":16,
+                    "color":"#f00"
+                })
+            })
         })
         
     </script>

@@ -12,11 +12,14 @@
          */
         window.onload = function() {
             // 먼저 #menu2를 찾는다.
-
+            var menu2 = document.getElementById("menu2");
             // #menu2의 태그 중 li태그를 찾는다.
-
+            var liList = menu2.getElementsByTagName("li");
             // li태그를 하나씩 접근해 글자색을 변경한다.
-
+            for(var i=0; i<liList.length; i++){
+                var li = liList[i];
+                li.style.color="#f00";
+            }
         }
     </script>
 

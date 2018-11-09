@@ -44,9 +44,14 @@
 
                 $(document).ready(function() {
                     // 물고기 노드 구하기.
-
+                    var $fish = $("#fish");
 
                     // 버튼에 이벤트 걸기.
+                    $("#btnStart").click(function(){
+                        $fish.animate({
+                            left:"430px"
+                        },1000)
+                    })
 
                 })
 
