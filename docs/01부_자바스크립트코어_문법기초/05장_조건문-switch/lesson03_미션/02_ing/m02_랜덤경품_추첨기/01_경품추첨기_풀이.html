@@ -25,14 +25,27 @@
          */
 
 
-        //풀이 전 코드:
-        $(document).ready(function() {
+        $(document).ready(function () {
             // 버튼에 클릭 이벤트 리스너 등록
-            $("#start").click(function() {
+            $("#start").click(function () {
                 // 여기에 소스를 입력해 주세요.
+                var random = parseInt(Math.random() * 10) + 1;
 
+                switch (random) {
+                    case 3:
+                        document.write("당첨! 냉장고<br>");
+                        break;
+                    case 5:
+                        document.write("당첨! 세탁기<br>");
+                        break;
+                    case 8:
+                        document.write("당첨! TV<br>");
+                        break;
+                    default:
+                        document.write("꽝!");
+                }
             })
-        });
+        }
 
     </script>
 </head>
