@@ -57,7 +57,15 @@
             // 버튼에 이벤트 걸기.
             $("#btn_start").click(function() {
                 // 여기에 소스를 입력해주세요.
+                var value = window.prompt("x값은 얼마?"); //사용자에게 값을 물음
+                value = parseInt(value); //문자를 숫자로 형변환
 
+                if( value>=0 && value<=430 ){ //조건 범위
+                     $fish.css("left",value); //css
+                }
+                else {
+                    alert("유효한 좌표 값이 입력되지 않았습니다.");
+                }
             });
         })
 

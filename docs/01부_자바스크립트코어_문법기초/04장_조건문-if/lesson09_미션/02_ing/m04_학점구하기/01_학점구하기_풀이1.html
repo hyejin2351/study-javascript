@@ -28,11 +28,25 @@
 
         // 1. 평균 점수 입력받기.
         var value = window.prompt("평균 점수를 입력해주세요.");
-
         // 2. 문자를 숫자로.
-
+        value = parseInt(value);
 
         // 3. 학점 계산 후
+        if( value<=59 ){
+            alert(value+ "점수의  학점은? F 입니다.");
+        }
+        else if( value>=60 && value<=69 ){
+            alert(value+ "점수의  학점은? D 입니다.");
+        }
+        else if( value>=70 && value<=79 ){
+            alert(value+ "점수의  학점은? C 입니다.");
+        }
+        else if( value>=80 && value<=89 ){
+            alert(value+ "점수의  학점은? B 입니다.");
+        }
+        else{
+            alert(value+ "점수의  학점은? A 입니다.");
+        }
         // 4. 학점 출력
 
 

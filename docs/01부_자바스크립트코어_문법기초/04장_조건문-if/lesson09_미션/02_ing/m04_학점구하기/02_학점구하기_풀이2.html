@@ -28,11 +28,29 @@
 
         // 1. 평균 점수 입력받기.
         var value = window.prompt("평균 점수를 입력해주세요.");
-
         // 2. 문자를 숫자로.
         value=parseInt(value);
 
+        var grade = null;
+
         // 3. 학점 구하기
+        if( value<60 ){
+            grade = "F";
+        }
+        else if( value<70 ){
+            grade = "D";
+        }
+        else if( value<80 ){
+            grade = "C";
+        }
+        else if( value<90 ){
+            grade = "B";
+        }
+        else{
+            grade = "A";
+        }
+
+        alert(value+ "점수의  학점은?" +grade+ "입니다.")
 
 
         // 4. 학점 출력

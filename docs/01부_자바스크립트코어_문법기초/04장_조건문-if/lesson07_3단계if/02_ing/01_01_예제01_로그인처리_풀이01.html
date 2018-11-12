@@ -20,6 +20,16 @@
         var userID = window.prompt("사용자아이디는? ");
         var userPW = window.prompt("사용자패스워드는?");
 
+        if( userID=="ddandongne" && userPW=="1234" ){
+            alert("환영합니다.")
+        }
+        else if( userID!="ddandongne" ){ //일어날 수 있는 모든 경우의 수 "else if"
+            alert("사용자 아아디를 잘못 입력했습니다.")
+        }
+        else { //일어날 수 있는 최종의 경우의 수 "else"
+            alert("패스워드를 잘못 입력했습니다.");
+        }
+
         // 2. 값 비교.
 
 

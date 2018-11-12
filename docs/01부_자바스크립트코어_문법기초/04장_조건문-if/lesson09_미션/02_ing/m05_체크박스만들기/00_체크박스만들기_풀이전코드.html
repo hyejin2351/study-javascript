@@ -39,7 +39,14 @@
 
             $(".d-checkbox").click(function() {
                 // 소스를 여기에 입력해주세요.
+                bCheck = !bCheck; //클릭 시마다 토클
 
+                if( bCheck==true ){
+                    $chk.addClass("check");
+                }
+                else{
+                    $chk.removeClass("check");
+                }
             })
         })
 
