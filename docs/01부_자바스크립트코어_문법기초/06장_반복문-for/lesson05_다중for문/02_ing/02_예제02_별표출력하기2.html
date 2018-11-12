@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Untitled Document</title>
@@ -19,7 +20,18 @@
          *
 
          */
+         //실행화면을 보고 알 수 있는 사실
+         //1. 총 5번 실행되었다.
+         //2. 한번씩 실행될 때 마다 별표가 하나씩 줄어든다.
 
+         for( var i=5; i>0; i-- ){ 
+             var result = "";
+             
+             for( var m=1; m<=i; m++ ){ 
+                 result +="*";
+             }
+             document.write(result+ "<br>")
+         }
 
 
     </script>
@@ -29,4 +41,5 @@
 <body>
 
 </body>
+
 </html>

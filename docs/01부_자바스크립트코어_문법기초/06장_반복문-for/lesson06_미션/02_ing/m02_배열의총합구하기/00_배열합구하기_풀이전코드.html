@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Untitled Document</title>
@@ -12,6 +13,13 @@
          */
         // 풀이 전 코드:
         var data = [10, 20, 30, 40, 50];
+        var result = 0;
+
+        for (i = 0; i < data.length; i++) {
+            result += data[i]; //0 = 10+0..10+20..30+30..60+40..100+50
+
+            document.write("result=" + result + "<br>");
+        }
 
     </script>
 
@@ -20,4 +28,5 @@
 <body>
 
 </body>
+
 </html>

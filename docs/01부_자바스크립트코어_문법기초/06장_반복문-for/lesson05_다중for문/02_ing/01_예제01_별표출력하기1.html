@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Untitled Document</title>
@@ -18,9 +19,17 @@
          *****
 
          */
+         //실행 5번 되었다.
+         //실행시 마다 *이 하나식 증가한다.
+         
+        for( var i=1; i<=5; i++ ){
+            var result = "";
 
-
-
+            for( var m=1; m<=i; m++ ){
+                result += "*";
+            }
+            document.write(result+ "<br>");
+        }
     </script>
 
 </head>
@@ -28,4 +37,5 @@
 <body>
 
 </body>
+
 </html>
