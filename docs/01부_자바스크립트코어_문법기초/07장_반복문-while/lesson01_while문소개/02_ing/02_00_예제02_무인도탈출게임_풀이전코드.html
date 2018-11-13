@@ -10,6 +10,16 @@
          3이 나올 때가지 주사위를 계속 던지는 예제를 만들어 주세요.
          단, 다음과 같이 출력되게 만들어 주세요.
 
+        !문제를 보고 알 수 있는 사실들
+        //주사위를 던져나오는 값은 랜덤 random 
+        >random값 구하는 방법: parseInt(Math.random()*max)+min;
+        //원하는 값이 나올 때까지 주사위를 계속 던짐, 시작은 0
+        >var count = 0; count++
+        //주사위를 던져서 나온 값이 3이 나오면 break
+        >if(num==3){break;}
+        //구문이 실행하기 위해 필요한 것들
+        >1.초기값 2.조건식 3.증감 4.변수선언 5.출력
+
          출력 결과:
              1번째 나온 숫자 =6
              2번째 나온 숫자 =6
@@ -25,7 +35,20 @@
             $("#btnStart").click(function(){
                 // 여기에 소스를 입력해주세요.
 
+               var count = 0; //while문의 초기값
 
+               while(true){ //조건식
+                   count++ //증감
+                   var num = parseInt(Math.random()*6)+1;
+                   
+                   //실행구문
+                   console.log(count+ "번째 나온숫자 =" +num);
+
+                   if(num==3){
+                       console.log("탈출");
+                       break;
+                   }
+               }
             })
         })
 
