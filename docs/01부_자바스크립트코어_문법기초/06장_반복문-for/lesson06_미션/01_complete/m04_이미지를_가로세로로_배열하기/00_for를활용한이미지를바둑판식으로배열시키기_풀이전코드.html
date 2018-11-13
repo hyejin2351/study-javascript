@@ -51,6 +51,16 @@
                 var length = $images.length;
 
                 // 여기에 풀이를 입력해주세요.
+                for( var i=0; i<length; i++ ){
+                    var $img = $images.eq(i); //위치값 변수 선언
+                    var x = 100+(i%3)*200
+                    var y = 100+(parseInt(i/3)*200) //parseInt를 써서 실수를 정수화하여 나란히 배열한다.
+
+                    $images.eq(i).css({
+                        "left":x,
+                        "top":y
+                    })
+                }
 
             });
         });
