@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title></title>
@@ -39,20 +40,31 @@
             var count = 0;
             var $score = $("#score");
 
-            // 여기에 코드를 입력해주세요.
+            //5초 동안 실행
+            clearInterval(timeID)
 
+            //물고기 클릭 시 1점 획득
+            function getScore() {
+                $("#fish").click(function () {
+                    count++
+                    //점수 화면에 바로 표시
+                    $score.text(count);
+                });
+            }
+            setInterval(getScore, 5000);
         });
+
+
     </script>
 </head>
-<body>
-<div>현재점수 <span id="score">0</span></div>
-<div class="panel">
-    <img src="fish1.png" id="fish">
 
-</div>
+<body>
+    <div>현재점수 <span id="score">0</span></div>
+    <div class="panel">
+        <img src="fish1.png" id="fish">
+
+    </div>
 </body>
 
 
 </html>
-
-

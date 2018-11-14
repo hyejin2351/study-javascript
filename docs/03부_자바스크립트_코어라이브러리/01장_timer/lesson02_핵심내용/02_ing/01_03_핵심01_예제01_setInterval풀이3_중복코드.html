@@ -32,8 +32,15 @@
             var $output = $("#output");
             var count = 0;
 
+            function addCount(){
+                count++;
 
+                $output.text(count);
+            }
 
+            setInterval(addCount,1000);
+            
+            addCount();
         })
 
     </script>

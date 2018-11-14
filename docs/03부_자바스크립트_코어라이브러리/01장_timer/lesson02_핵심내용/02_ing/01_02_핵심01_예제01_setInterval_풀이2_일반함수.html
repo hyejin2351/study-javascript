@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD Xhtml 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title></title>
@@ -34,9 +35,13 @@
             var $output = $("#output");
             var count = 0;
 
-            // 여기에 풀이를 입력해주세요.
+            function addCount() {
+                count++;
 
-
+                $output.text(count);
+            }
+            setInterval(addCount, 1000); //return addCount() 
+            //일반함수 + setInterval 함수 사용시 작성법
         })
 
     </script>
@@ -45,8 +50,9 @@
 </head>
 
 <body>
-<div id="output">
-    0
-</div>
+    <div id="output">
+        0
+    </div>
 </body>
+
 </html>
