@@ -1,8 +1,9 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Untitled Document</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Untitled Document</title>
 
     <script>
 
@@ -12,14 +13,23 @@
          콜백함수를 사용하는 경우
          */
 
+        function sum(num1, num2, callback) {
+            var result = num1 + num2;
+
+            callback(result);
+        }
+
+        function print(result) {
+            document.write("두 수의 합은" + result + "입니다.");
+        }
+
+        sum(25, 25, print);
 
     </script>
-
-
-
 </head>
 
 <body>
 
 </body>
+
 </html>

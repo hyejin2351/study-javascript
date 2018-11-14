@@ -9,7 +9,15 @@
          예제 05: 리턴값으로 값으로 함수를 사용한 경우
          */
 
+        function createHello(){
+            function hello(user){
+                document.write(user+ "님 방문을 환영합니다.");
+            }
+            return hello
+        }
 
+        var result = createHello();
+        result("웹동네")
 
 
 

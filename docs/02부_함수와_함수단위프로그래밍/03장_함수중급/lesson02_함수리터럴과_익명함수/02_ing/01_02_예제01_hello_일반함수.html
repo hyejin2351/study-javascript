@@ -10,10 +10,16 @@
 
          */
         // 일반적인 방식과 객체 방식
-
-
+        function hello(name){
+            alert(name+ "님 환영합니다.");
+        }
+        hello("ddandongne");
+        
         // 객체 방식
-
+        $(document).ready(function() {
+            var hello2 = new Function("name", "alert(name+ '님 환영합니다.')");
+            hello2('ddandongne');
+        });
 
     </script>
 </head>

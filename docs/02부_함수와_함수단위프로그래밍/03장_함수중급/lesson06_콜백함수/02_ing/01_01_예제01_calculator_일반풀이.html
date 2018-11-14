@@ -9,9 +9,16 @@
          예제 01: 풀이 전 코드는 사칙연산 계산기입니다.
          풀이 전 코드를 요구사항에 맞게 출력될 수 있도록 수정해 주세요.
 
-         일반풀이
+
+        요구사항: 
+        caculator1("연산자","값1, 값2")을 실행하면 "두 수의 합은 00입니다."를 출력해 주세요.
+        caculator2("연산자","값1, 값2")을 실행하면 "정답은 00입니다."를 출력해 주세요.
+
          */
-        function calculator(op, num1,num2){
+
+
+        // 사칙연산 함수
+        function calculator1(op, num1,num2){
             var result="";
 
             switch(op) {
@@ -35,8 +42,32 @@
             document.write("두 수의 합은"+result+"입니다.", "<br>");
         }
 
-        calculator("+", 10,20);
+        function calculator2(op, num1,num2){
+            var result="";
 
+            switch(op) {
+                case "+" :
+                    result = num1 + num2;
+                    break;
+                case "-" :
+                    result = num1 - num2;
+                    break;
+                case "*" :
+                    result = num1 * num2;
+                    break;
+                case "/" :
+                    result = num1 / num2;
+                    break;
+
+                default :
+                    result = "지원하지 않는 연산자입니다";
+            }
+
+            document.write("정답은"+result+"입니다.", "<br>");
+        }
+
+        calculator1("+", 10,20);
+        calculator2("+", 10,20);
 
     </script>
 
