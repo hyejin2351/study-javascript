@@ -21,9 +21,22 @@
              */
             $(document).ready(function() {
                 var str = window.prompt("문자를 입력해 주세요.");
-
                 var $output = $("#output");
-                // 여기에 풀이를 입력해 주세요.
+
+                var index =0;
+
+                var timerID = setInterval(function(){
+                    var ch = str.charAt(index);
+
+                    $output.text(ch);
+
+                    index++;
+
+                    if(index>=str.length){
+                        clearInterval(timerID);
+                        alert("종료됐습니다.");
+                    }
+                },1000)
             })
 
         </script>

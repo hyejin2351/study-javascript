@@ -41,8 +41,26 @@
 
             // 앞쪽 공백문자를 제거하는 함수
             function ltrim(str) {
-                // 여기에 소스를 입력해주세요.
+                //str의 총 길이가 한글자이거나(공백 = 1) 아무 문자가 없을 경우
+                //빈문자열일 때
+                if(str.length<=0)
+                return "";
 
+                //공백이 없을 때
+                var firstCh = str.charAt(0); //첫글자가
+                if(firstCh!="_"){ //공백이 아니면
+                    return str; //str 반환
+                }
+
+                //공백이 끝나는 위치를 찾을 때
+                for(var index=1; index<str.length; index++ ){ //마지막 공백의 인덱스 번호는 1 //문자열 1부터 쭉 훑겠다.
+                    var ch = str.charAt(index); //ch = 문자들의 인덱스번호
+                    if(ch!="_"){ //문자열 1부터 공백이 없으면
+                        break; //result 반환
+                    }
+                }
+                var result = str.slice(index, str.length); //1번 인덱스부터 str의 문자 끝까지를 반환함
+                return result;
             }
 
         </script>

@@ -10,6 +10,14 @@
              출력해 주세요.
              */
             var data = window.prompt("문자를 입력해 주세요.");
+            var index = data.indexOf("sample");
+
+            if( index>=0 ){
+                document.write("sample 글자는" +index+ "번째 위치부터 시작합니다.");
+            }
+            else{
+                document.write("문자가 존재하지 않습니다.")
+            }
 
 
         </script>
@@ -18,7 +26,6 @@
 
     <body>
         <div id="info">
-            0
         </div>
     </body>
 </html>
