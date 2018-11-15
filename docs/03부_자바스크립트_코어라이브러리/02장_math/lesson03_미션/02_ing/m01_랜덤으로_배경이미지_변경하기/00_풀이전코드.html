@@ -51,21 +51,18 @@
 
         // 배너
         function banner(selector, imgList, speed){
-            var currentIndex=1;
             var $banner = $(selector);
 
             // 1초에 한번씩 함수 호출
             setInterval(function(){
-                // 다음에 등장할 배너 인덱스 값 구하기
-                currentIndex++;
-                if(currentIndex>=imgList.length)
-                    currentIndex = 0;
+                var currentIndex = Math.floor(Math.random()*imgList.length); //0~4 사이의 수를 랜덤으로 뽑아낸다.
+                /*Math.floor를 사용한 이유? 배열의 인덱스 값과 일치하는 0~4 사이의 수만 남기기 위해 4.1~4.9 사이의 수도 4로 반내림한다.*/
 
                 // 다음 이미지 이름 구하기
                 var imgName = imgList[currentIndex];
                 // 다음 이미지 출력
                 $banner.attr("src", "./images/"+imgName);
-            },speed)
+            },1000)
         }
 
 

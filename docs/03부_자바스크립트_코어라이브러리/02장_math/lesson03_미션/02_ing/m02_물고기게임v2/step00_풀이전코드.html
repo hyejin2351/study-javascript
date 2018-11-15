@@ -1,29 +1,31 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
 
     <style>
-
         .info {
             font-size: 14pt;
         }
+
         #start {
-            font-size:14pt;
+            font-size: 14pt;
         }
+
         .panel {
-            width:600px;
-            height:400px;
+            width: 600px;
+            height: 400px;
             position: relative;
-            border:2px solid #000;
-            margin-top:10px;
+            border: 2px solid #000;
+            margin-top: 10px;
         }
 
         .panel #fish {
             position: absolute;
-            left:250px;
-            top:150px;
+            left: 250px;
+            top: 150px;
         }
     </style>
 
@@ -53,53 +55,89 @@
 
 
         */
-        $(document).ready(function(){
-            // 점수 변수
-            var count=0;
 
-            // 점수를 출력할 요소
-            var $score = $("#score");
+        var count = 0;
+        var $score = null;
+        var $fish = null;
+        var playing = false;
+        var timerID = 0;
 
-            // 여기에 코드를 입력해주세요.
-            // 게임 진행 유무 판단 변수
-            var playing=true;
+        $(document).ready(function () {
+            init();
+            initEvent();
+        });
+
+        //요소 초기화
+        function init() {
+            $fish = $("#fish");
+            $score = $("#score");
+        }
+
+        function startGame() {
+            if (playing == false) {
+                checkEndGame();
+
+                playing = true;
+                timerID = setInterval(function () {
+                    moveFish();
+                }, 500);
+            }
+        }
+
+        function initEvent() {
             // 물고기에 클릭 이벤트 등록
-            $("#fish").click(function(){
-
-                if(playing==true){
-                    // 점수 증가
-                    count++;
-                    $score.html(count);
-                }
+            $("#start").click(function () {
+                startGame();
             });
 
-            // 게임을 5초후에 종료시켜 줍니다.
-            setTimeout(function(){
-                playing=false;
-                alert("게임이 종료 되었습니다.")
-            },5000)
+            $("#fish").click(function () {
+                addScore();
+            })
+        }
 
-        });
+        //물고기 움직이는 함수
+        function moveFish() {
+            var x = Math.floor(Math.random() * 480);
+            var y = Math.floor(Math.random() * 330);
+            $fish.css({
+                left: x,
+                top: y
+            })
+        }
+
+        function addScore() {
+            if (playing == true) {
+                // 점수 증가
+                count++;
+                $score.html(count);
+            }
+        }
+
+        function checkEndGame() {
+            setTimeout(function () {
+                playing = false;
+
+                clearInterval(timerID);
+                alert("게임이 종료 되었습니다.")
+            }, 10000)
+        }
 
 
 
 
 
     </script>
-</head> 
+</head>
 
 <body>
     <div>
         <button id="start">게임 시작</button>
         현재점수 <span id="score">0</span>
-    </div>   
-    
+    </div>
+
     <div class="panel">
-        <img src="fish1.png" id="fish">      
+        <img src="fish1.png" id="fish">
     </div>
 </body>
 
-
 </html>
-
-

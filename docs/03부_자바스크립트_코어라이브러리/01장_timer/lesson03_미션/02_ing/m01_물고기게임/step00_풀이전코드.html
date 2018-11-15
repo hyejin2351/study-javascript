@@ -40,18 +40,25 @@
             var count = 0;
             var $score = $("#score");
 
-            //5초 동안 실행
-            clearInterval(timeID)
+            //게임 진행 여부
+            var playing = true;
 
-            //물고기 클릭 시 1점 획득
-            function getScore() {
-                $("#fish").click(function () {
-                    count++
+            //게임이 진행중일 동안 물고기 클릭 시 1점 획득
+            $("#fish").click(function () {
+                if (playing == true) {
+                    count++;
                     //점수 화면에 바로 표시
-                    $score.text(count);
-                });
-            }
-            setInterval(getScore, 5000);
+                    $score.text(count); //(또는 score.html(count)를 쓸 수 있음)
+                }
+            });
+
+            //5초가 지나면 게임 진행여부가 false로 바뀌고 alert을 띄움
+            setTimeout(function () {
+                playing = false; 
+                //playing=false가 조건문에 안들어가는 이유는 위에 조건문의 조건란에 적었던 playing == true 변수가 false로 바뀌면 다시는 count 함수가 실행되지 않기 때문이다.
+                //선조건 후실행이 아니라 선실행 후조건이다.
+                alert("게임이 종료되었습니다.");
+            }, 5000);
         });
 
 
