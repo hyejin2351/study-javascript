@@ -22,8 +22,16 @@
          */
             $(document).ready(function() {
                 var $output = $("#output");
-                // 여기에 풀이를 입력해주세요.
+                
+                var date = new Date();
+                var year = date.getFullYear();
+                var month = date.getMonth()+1;
 
+                var day = date.getDay();
+                var aryDay = ["일","월","화","수","목","금","토"]
+
+                var result = (year+"년 "+month+"월 "+day+"일 "+aryDay[day]+"요일");
+                $output.html(result);
             })
 
         </script>

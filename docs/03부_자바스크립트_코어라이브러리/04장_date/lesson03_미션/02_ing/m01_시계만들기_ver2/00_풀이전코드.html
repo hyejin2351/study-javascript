@@ -22,24 +22,30 @@
              이를 02:03.05처럼 출력되게 만들어 주면 됩니다.
 
              */
+
             var $clock = null;
             $(document).ready(function() {
                 $clock = $("#clock");
-
                 // 시간 출력 함수 호출
                 clock();
-
             });
 
             function clock() {
-                // 여기에 풀이를 입력해주세요.
+
+                //한자리 숫자 앞에 0을 추가시키는 함수
+                function addZero(value){
+                    if(value<10){ //value 값이 한자리 숫자일 때
+                        value="0"+value; //숫자 앞에 0을 붙임
+                    }
+                    return value;
+                }
 
                 // 현재 시간 출력
                 function showTime() {
                     var objDate = new Date();
-                    var hours = objDate.getHours();
-                    var minutes = objDate.getMinutes();
-                    var seconds = objDate.getSeconds();
+                    var hours = addZero(objDate.getHours());
+                    var minutes = addZero(objDate.getMinutes());
+                    var seconds = addZero(objDate.getSeconds());
 
                     var time = hours + ":" + minutes + ":" + seconds;
                     $clock.html(time);
@@ -50,11 +56,10 @@
 
                 // 0.5초마다 시간 출력
                 setInterval(function() {
-
                     showTime();
-
                 }, 500)
             }
+
 
         </script>
 
