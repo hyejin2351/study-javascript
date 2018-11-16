@@ -1,5 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD Xhtml 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title></title>
@@ -8,6 +9,7 @@
             margin: 0;
             padding: 0;
         }
+
         .banner {
             width: 400px;
             height: 200px;
@@ -39,8 +41,8 @@
          이번 미션은 바로 이런 단점을 가진 코드 배열을 활용해 좀더 유지보수하기 쉽게 변경하는 것입니다.
 
          */
-        $(document).ready(function() {
-            var currentIndex = 1;
+        $(document).ready(function () {
+            var currentIndex = 0;
             var $banner = $(".banner");
 
             /*
@@ -48,16 +50,17 @@
             */
             // 1초에 한번씩 함수 호출
 
-            setInterval(function() {
-                // 다음에 등장할 배너 인덱스 값 구하기
+            var imgLists = ["logo_01","logo_02","logo_03","logo_04","logo_05","logo_06","logo_07","logo_08"];
+            setInterval(function () {
                 currentIndex++;
-                if (currentIndex > 8)
-                    currentIndex = 1;
 
-                // 다음 이미지 이름 구하기
-                var imgName = "logo_0" + currentIndex + ".jpg";
-                // 다음 이미지 출력
-                $banner.attr("src", "./images/" + imgName);
+                if( currentIndex>imgLists.length ){
+                    currentIndex = 0;
+                }
+
+                var imgName = imgLists[currentIndex]
+                    
+                $banner.attr("src", "./images/" + imgName + ".jpg");
             }, 1000);
         })
 
@@ -68,4 +71,5 @@
 <body>
     <img src="images/logo_01.jpg" class="banner" id="banner1">
 </body>
+
 </html>

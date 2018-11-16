@@ -1,5 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD Xhtml 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title></title>
@@ -7,6 +8,7 @@
         body {
             font-size: 9pt;
         }
+
         #panel {
             width: 700px;
             height: 600px;
@@ -52,21 +54,110 @@
          - 물고기가 골인 지점을 통과하면 몇 번째 물고기가 우승했는지 알려주고 게임을 종료시켜 주세요.
          */
 
-        var $fishs = null;
+        var $fishList = null;
+        var timerID = -1;
 
-        $(document).ready(function() {
-            $fishs = $(".fish");
+        $(document).ready(function () {
+            init();
+            initFishPosition();
+            initEvent();
+        })
 
-            // 물고기 배열 하기
-            for (var i = 0; i < $fishs.length; i++) {
-                var $fish = $fishs.eq(i);
+        function init() {
+            $fishList = $(".fish");
+            $info = $("#info");
+
+            //골인 지점
+            goalEndPosition = $("#bar").position().left - 120;
+        }
+
+        function initFishPosition() {
+            for (var i = 0; i < $fishList.length; i++) {
+                var $fish = $fishList.eq(i);
                 // 물고기 위치는 100부터 시작
                 $fish.css({
-                    left : 0,
-                    top : 100 + (i * 150)
+                    left: 0,
+                    top: 100 + (i * 150)
                 })
             }
-        })
+        }
+
+        function initEvent() {
+            $("#start").click(function () {
+                startGame();
+            })
+        }
+
+        function startGame() {
+            if (timerID == -1) {
+                timerID = setInterval(function () {
+                    //물고기 랜덤으로 움직이기
+                    updateFishPosition();
+                    //물고기 위치 정보 출력
+                    displayFishPositionInfo();
+                    //물고기가 골인 지점을 통과했는지 판단
+                    checkGoalFish();
+                }, 200)
+            }
+        }
+
+        function updateFishPosition() {
+            for (var i = 0; i < $fishList.length; i++) {
+                var $fish = $fishList.eq(i);
+                var step = Math.ceil(Math.random() * 30);
+                var newLeft = $fish.position().left + step;
+
+                $fish.css("left", newLeft);
+            }
+        }
+
+        function displayFishPositionInfo() {
+            var info = "";
+
+            for (var i = 0; i < $fishList.length; i++) {
+                var $fish = $fishList.eq(i);
+
+                info += "fish " + i + "=" + $fish.position().left + "<br>";
+            }
+
+            $info.html(info);
+        }
+
+        var goalFishList = [];
+        function checkGoalFish() {
+            for (var i = 0; i < $fishList.length; i++) {
+                var position = $fishList.eq(i).position().left;
+
+                if (position >= goalEndPosition) {
+                    // alert("우승 = " + (i+1) + "물고기");
+                    // endGame();
+
+                    goalFishList.push({
+                        index: (i + 1), position: position
+                    });
+                }
+            }
+
+            if (goalFishList.length > 0) {
+                goalFishList.sort(function (a, b) {
+                    return b.position - a.position;
+                });
+
+                endGame();
+                alert("우승 = " +goalFishList[0].index+ "물고기")
+                
+            }
+        }
+
+        function endGame() {
+                    clearInterval(timerID);
+                    timerID = -1;
+                }
+
+
+
+
+
     </script>
 </head>
 

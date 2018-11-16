@@ -31,8 +31,14 @@
         $(document).ready(function() {
             var $menu = $(".menu");
             var menuData = "menu1,menu2,menu3,menu4";
-            // 여기에 풀이를 입력해주세요.
 
+            //문자열을 배열로 바꾼다.
+            var aryData = menuData.split(",");
+
+            for( i=0; i<aryData.length ; i++ ){
+                var newMenuData = "<li>" +aryData[i]+ "</li>"
+                $menu.append(newMenuData);
+            }
         })
 
     </script>
