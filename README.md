@@ -3,7 +3,7 @@
 
 사용 교재: 자바스크립트 + jQuery 완전정복 스터디 (1 기초편)
 <br>
-회독 : 1회독
+회독 : 1
 <br>
 교재: [위키북스](http://wikibook.co.kr/) / [Github 자료실](https://github.com/wikibook/jqueryweb/archive/master.zip)
 <br>
