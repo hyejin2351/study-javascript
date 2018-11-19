@@ -11,4 +11,4 @@ Zip 형식으로 다운로드: https://github.com/wikibook/jqueryweb/archive/mas
 <br><br>
 스터디 기간: 2018.11.08 ~ 2018.11.16
 <br>
-실습 환경: Window10, Node.js 8.11.2, VS Code
+실습 환경: Window10, VS Code
